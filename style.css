@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-color: black;
+    
+}
+
+#hide {
+    display: none;
+}
+
+#main-modal {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+#main-modal #modal {
+    width: 360px;
+    height: 190px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+#modal .modaltitle {
+    padding: 15px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid gray;
+}
+
+#modal .modalcontent {
+    padding: 15px 5px;
+    font-size: 14px;
+}
+
+#modal #normal-mode,#modal #hard-mode {
+    width: 45%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f4c531;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#modal #hard-mode {
+    background-color: gray;
+    text-decoration: line-through;
+}
+
+#bottom-modal {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+#modal-input {
+    position: fixed;
+    background-color: antiquewhite;
+    width: 370px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%);
+    border: 5px solid #f4c531;
+}
+
+#champ-input {
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #f4c531;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+#send {
+    width: 25%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #f4c531;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#heroes {
+    position: relative;
+    color: aliceblue;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#heroes #hero-list {
+    position: absolute;
+    list-style: none;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+[id^="all-heroes-"] {
+    position: relative;
+    background-color: #f4c531;
+    width: 13%;
+    min-width: 200px;
+    max-width: 300px;
+    max-height: 300px;
+    min-height: 200px;
+    border: 1px solid #362c0b;
+}
+
+#heroes-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#hero-name {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    font-size: 21px;
+    font-weight: 600;
+    border: 1px solid black;
+    padding: 1px 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+#score {
+    position: absolute;
+    top: -40px;
+    left: 130px;
+    background-color: #f4c531;
+    color: black;
+    font-size: 20px;
+    padding: 2px 0;
+    font-weight: 600;
+    width: 100px;
+    border: 3px solid #f4c531;
+    border-radius: 5px;
+}
+
+#time {
+    position: absolute;
+    bottom: -40px;
+    left: 130px;
+    background-color: #f4c531;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100px;
+    padding: 2px 0;
+    border: 3px solid #f4c531;
+    border-radius: 5px;
+}
