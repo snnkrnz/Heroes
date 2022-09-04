@@ -168,18 +168,22 @@ const lolHeroes = ["Aatrox",
 "Ziggs",
 "Zilean",
 "Zoe",
-"Zyra"]
+"Zyra"];
+const lower = lolHeroes.map(e => {
+    return e.toLowerCase();
+  });
 
 // click play , display none - flex mainModal bottomModal heroList
 function normalMode(){
     mainModal.style.display = "none";
     bottomModal.style.display = "flex";
     heroList.style.display = "flex";
-
+// focus input
+document.querySelector("#champ-input").focus();
     // time 20:00
-    var timeoutHandle;
-    function countdown(minutes, seconds) {
-    function tick() {
+var timeoutHandle;
+function countdown(minutes, seconds) {
+function tick() {
         var counter = document.getElementById("time");
         counter.innerHTML =
             minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
@@ -209,12 +213,13 @@ countdown(20, 00);
     if(heroList.style.display == "flex"){
         for(i=0;i<=lolHeroes.length -1;i++){
             var li = document.createElement('li');
-            li.setAttribute("id", `all-heroes-${lolHeroes[i]}`);
+            li.setAttribute("id", `all-heroes-${lolHeroes.indexOf(lolHeroes[i])}`);
             li.innerHTML = soru;
             heroList.appendChild(li);
         };
     }
 }
+
 
 const allHeroes = document.getElementById("all-heroes");
 const heroesImage = document.getElementById("heroes-image");
@@ -225,32 +230,72 @@ function hardMode(){
     alert("Zor mod yapım aşamasında");
 }
 
+
+// input enter key
+let input = document.getElementById("champ-input");
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        document.getElementById("send").click() = function() {tahmin()};
+      }
+    });
+
+// send button
 function tahmin(){
 
     let score = document.getElementById("score");
     let gelenTahmin = document.getElementById("champ-input").value;
+    let kontrol = lolHeroes.find(s => s == gelenTahmin);
+    let kontrol2 = lower.find(s => s == gelenTahmin.toLowerCase());
+    let tahminIndex = lolHeroes.indexOf(gelenTahmin)
+    let tahmin2Index = lower.indexOf(gelenTahmin.toLowerCase())
+    let gelenId = document.getElementById(`all-heroes-${tahminIndex}`);
+    let gelenId2 = document.getElementById(`all-heroes-${tahmin2Index}`);
     
-    if(gelenTahmin==lolHeroes.find(s => s == gelenTahmin)){
-        var test = document.getElementById(`all-heroes-${gelenTahmin}`);
-
-        if("all-heroes-"+gelenTahmin == test.getAttribute(`id`)){
+    if(gelenTahmin==kontrol){
+        if("all-heroes-"+tahminIndex == gelenId.getAttribute(`id`)){
             let img = `<img id="heroes-image" src="images/${gelenTahmin}.jpg" alt="${gelenTahmin}">
                         <span id="hero-name">${gelenTahmin}</span>`;
-            test.innerHTML = img;
+            gelenId.innerHTML = img;
             // go to img
-            let goToHero = document.getElementById(`all-heroes-${gelenTahmin}`);
+            let goToHero = document.getElementById(`all-heroes-${tahminIndex}`);
             goToHero.scrollIntoView({behavior: 'smooth'});
             // not same name
-            lolHeroes.splice(lolHeroes.indexOf(gelenTahmin), 1);
+            lolHeroes.splice(tahminIndex, 1);
+            lower.splice(tahmin2Index, 1);
+            lolHeroes.splice(tahmin2Index, 1);
+            lower.splice(tahminIndex, 1);
             // +1
             score.innerText = `${z += 1}/161`;
             let wrong = document.getElementById("champ-input");
             wrong.style.border = "2px solid green";
-        }     
+            // input value del
+            document.querySelector("#champ-input").value = "";
+        }
     }
-    else {
+    else if(gelenTahmin.toLowerCase()==kontrol2){
+    
+        if("all-heroes-"+tahmin2Index == gelenId2.getAttribute(`id`)){
+            let img = `<img id="heroes-image" src="images/${gelenTahmin}.jpg" alt="${gelenTahmin}">
+                        <span id="hero-name">${lolHeroes[lower.indexOf(gelenTahmin)]}</span>`;
+            
+            gelenId2.innerHTML = img;
+            // go to img
+            let goToHero = document.getElementById(`all-heroes-${tahmin2Index}`);
+            goToHero.scrollIntoView({behavior: 'smooth'});
+            // not same name
+            lolHeroes.splice(tahminIndex, 1);
+            lower.splice(tahmin2Index, 1);
+            lolHeroes.splice(tahmin2Index, 1);
+            lower.splice(tahminIndex, 1);
+            // +1
+            score.innerText = `${z += 1}/161`;
+            let wrong = document.getElementById("champ-input");
+            wrong.style.border = "2px solid green";
+            // input value del
+            document.querySelector("#champ-input").value = "";
+        }} 
+     else {
         let wrong = document.getElementById("champ-input");
         wrong.style.border = "2px solid red";
     }
 }
-
