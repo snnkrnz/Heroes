@@ -179,7 +179,7 @@ function yenile(){
     }
 
 // click play , display none - flex mainModal bottomModal heroList
-function normalMode(){
+function hardMode(){
     mainModal.style.display = "none";
     bottomModal.style.display = "flex";
     heroList.style.display = "flex";
@@ -255,15 +255,22 @@ const heroesImage = document.getElementById("heroes-image");
 const heroName = document.getElementById("hero-name");
 let z = 0;
 
-function hardMode(){
-    alert("Zor mod yapım aşamasında");
+function normalMode(){
+    document.getElementById("yapim").style.display = "block";
+
+    setTimeout(yapim, 2000);
+    function yapim() {
+        document.getElementById("yapim").style.display = "none";
+}
+
+    
 }
 
 // input enter key
 let input = document.getElementById("champ-input");
 input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
-        document.getElementById("send").click();
+        document.getElementById("send").click() = function() {tahmin()};
       }
     });
 
@@ -287,7 +294,7 @@ function tahmin(){
 
             // go to img
             let goToHero = document.getElementById(`all-heroes-${tahminIndex}`);
-            goToHero.scrollIntoView({behavior: 'smooth'});
+            goToHero.scrollIntoView({behavior: 'smooth', block: 'nearest'});
 
             // not same name
             delete lower[lolHeroes.indexOf(gelenTahmin)]
@@ -311,7 +318,7 @@ function tahmin(){
             gelenId2.innerHTML = img;
             // go to img
             let goToHero = document.getElementById(`all-heroes-${tahmin2Index}`);
-            goToHero.scrollIntoView({behavior: 'smooth'});
+            goToHero.scrollIntoView({behavior: 'smooth', block: 'center'});
 
             // not same name
             delete lolHeroes[lower.indexOf(gelenTahmin.toLowerCase())]

@@ -235,6 +235,7 @@ body {
     border-radius: 5px;
     background-color: #f4c531;
     padding: 5px 20px;
+    cursor: pointer;
 }
 
 #bitir {
@@ -252,5 +253,11 @@ body {
 
 #bitir:hover {
     background-color: red;
+    color: white;
+}
+
+#yapim {
+    display: none;
+    margin-top: 15px;
     color: white;
 }
