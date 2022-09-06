@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -48,7 +47,7 @@ body {
     padding: 10px;
     font-size: 16px;
     font-weight: 600;
-    background-color: #f4c531;
+    background-color: #e5a43b;
     border: 1px solid black;
     cursor: pointer;
     border-radius: 5px;
@@ -69,34 +68,49 @@ body {
 
 #modal-input {
     position: fixed;
-    background-color: antiquewhite;
-    width: 370px;
-    padding: 15px;
+    background-color: #fff;
+    width: 400px;
+    padding: 10px;
     border-radius: 5px;
     text-align: center;
     left: 50%;
-    bottom: 10%;
+    bottom: 8%;
     transform: translate(-50%);
-    border: 5px solid #f4c531;
 }
 
 #champ-input {
-    padding: 10px;
+    padding: 7px 10px;
     width: 70%;
-    border: 2px solid #f4c531;
+    border: 2px solid #e5a43b;
     background-color: transparent;
     font-weight: 600;
+    background-color: rgb(241, 241, 241);
+    border-radius: 4px;
+}
+
+#champ-input::placeholder{
+    color: #e5a43b;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+}
+#champ-input:focus{
+    color: #e5a43b;
+    text-align: center;
+    background-color: #e2e2e2;
+    font-size: 15px;
 }
 
 #send {
     width: 25%;
-    padding: 10px;
+    padding: 7px 10px;
     font-size: 16px;
-    font-weight: 600;
-    background-color: #f4c531;
+    font-weight: bold;
+    background-color: #e5a43b;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4px;
+    color: white;
 }
 
 #heroes {
@@ -118,7 +132,7 @@ body {
 
 [id^="all-heroes-"] {
     position: relative;
-    background-color: #f4c531;
+    background-color: #e5a43b;
     width: 13%;
     min-width: 200px;
     max-width: 300px;
@@ -141,18 +155,17 @@ body {
 
 #hero-name {
     position: absolute;
-    width: 88%;
+    width: 94%;
     text-align: center;
-    bottom: 7px;
+    bottom: 4px;
     left: 50%;
     transform: translate(-50%, -10%);
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 600;
-    border: 2px solid rgba(0, 148, 0, 0.7);
+    border: 1px solid rgba(0, 148, 0, 0.7);
     padding: 4px;
-    background-color: black;
     color: white;
-    border-radius: 5px;
+    background: linear-gradient(0deg,rgba(0,0,0,1),rgba(13,29,40,.7));
 }
 
 #hero-name-qm {
@@ -169,32 +182,53 @@ body {
     border-radius: 5px;
 }
 
-#score {
+#centertop {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#bitir {
     position: absolute;
-    top: -40px;
-    left: 130px;
-    background-color: #f4c531;
+    right: 0;
+    background-color: #e5a43b;
     color: black;
     font-size: 20px;
-    padding: 2px 0;
+    padding: 0 5px;
     font-weight: 600;
-    width: 100px;
-    border: 3px solid #f4c531;
-    border-radius: 5px;
+    border-bottom: 1px solid red;
+    cursor: pointer;
+}
+
+#bitir:hover {
+    background-color: red;
+    color: white;
+}
+
+#score {
+    background-color: #e5a43b;
+    color: white;
+    font-size: 16px;
+    width: 5%;
+    min-width: 60px;
+    font-weight: 600;
+    border-bottom: 1px solid #fff8e1;
+    text-align: center;
+    margin-right: 2px;
 }
 
 #time {
-    position: absolute;
-    bottom: -40px;
-    left: 130px;
-    background-color: #f4c531;
-    color: black;
-    font-size: 20px;
+    background-color: #e5a43b;
+    color: white;
+    min-width: 60px;
+    font-size: 16px;
     font-weight: 600;
-    width: 100px;
-    padding: 2px 0;
-    border: 3px solid #f4c531;
-    border-radius: 5px;
+    width: 5%;
+    border-bottom: 1px solid #fff8e1;
+    text-align: center;
+    margin-left: 2px;
 }
 
 #end-game {
@@ -209,7 +243,7 @@ body {
     left: 50%;
     bottom: 50%;
     transform: translate(-50%, 50%);
-    border: 5px solid #f4c531;
+    border: 5px solid #e5a43b;
 }
 
 #your-score {
@@ -233,27 +267,9 @@ body {
     font-size: 16px;
     font-weight: 600;
     border-radius: 5px;
-    background-color: #f4c531;
+    background-color: #e5a43b;
     padding: 5px 20px;
     cursor: pointer;
-}
-
-#bitir {
-    position: absolute;
-    bottom: -25px;
-    left: -5px;
-    background-color: #f4c531;
-    color: black;
-    font-size: 14px;
-    padding: 0 5px;
-    font-weight: 600;
-    border: 1px solid #f4c531;
-    cursor: pointer;
-}
-
-#bitir:hover {
-    background-color: red;
-    color: white;
 }
 
 #yapim {
@@ -261,3 +277,4 @@ body {
     margin-top: 15px;
     color: white;
 }
+
